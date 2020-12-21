@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 
+@Entity
 public class Arccvc implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +15,7 @@ public class Arccvc implements Serializable {
 	private IdArccvc idArc;
 	
 	private String descripcion;
+	
 	@Column(name = "PASSWORD")
 	private String pass;
 	

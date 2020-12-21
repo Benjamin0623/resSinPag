@@ -16,6 +16,7 @@ com\cdsi\backend\inve\models\services\IUsuarioService.class
 com\cdsi\backend\inve\models\services\ArfatpServiceImpl.class
 com\cdsi\backend\inve\models\services\ArincatServiceImpl.class
 com\cdsi\backend\inve\util\CORS.class
+com\cdsi\backend\inve\exception\ModeloNotFoundException.class
 com\cdsi\backend\inve\controllers\ArticuloController.class
 com\cdsi\backend\inve\models\entity\Arfamc.class
 com\cdsi\backend\inve\models\dao\ICompanyDao.class
@@ -24,6 +25,7 @@ com\cdsi\backend\inve\models\services\IArfamcService.class
 com\cdsi\backend\inve\controllers\LineaController.class
 com\cdsi\backend\inve\controllers\RolRestController.class
 com\cdsi\backend\inve\models\services\IArccmcService.class
+com\cdsi\backend\inve\models\entity\IdArccvc.class
 com\cdsi\backend\inve\models\entity\IdTapUsuPven.class
 com\cdsi\backend\inve\models\entity\Linea.class
 com\cdsi\backend\inve\controllers\UsuarioRestController.class
@@ -38,6 +40,7 @@ com\cdsi\backend\inve\controllers\ArccmcController.class
 com\cdsi\backend\inve\models\entity\Arccmc.class
 com\cdsi\backend\inve\models\services\ArticuloServiceImpl.class
 com\cdsi\backend\inve\models\entity\IdCatalogo.class
+com\cdsi\backend\inve\models\services\IArccvcService.class
 com\cdsi\backend\inve\models\services\IArincatService.class
 com\cdsi\backend\inve\models\dao\IUsuarioDao.class
 com\cdsi\backend\inve\models\entity\IdArinfa.class
@@ -58,6 +61,9 @@ com\cdsi\backend\inve\models\entity\IdArincat.class
 com\cdsi\backend\inve\models\services\IArinfaService.class
 com\cdsi\backend\inve\models\services\StockLibroDTOService.class
 com\cdsi\backend\inve\models\services\ArfamcServiceImpl.class
+com\cdsi\backend\inve\controllers\ArccvcController.class
+com\cdsi\backend\inve\models\dao\IArccvcDao.class
+com\cdsi\backend\inve\models\services\ArccvcServiceImpl.class
 com\cdsi\backend\inve\models\dao\IArticuloDao.class
 com\cdsi\backend\inve\controllers\ArfatpController.class
 com\cdsi\backend\inve\models\services\ArccmcServiceImple.class
@@ -73,9 +79,12 @@ com\cdsi\backend\inve\models\services\ArinfaServiceImpl.class
 com\cdsi\backend\inve\models\services\IArticuloService.class
 com\cdsi\backend\inve\models\entity\Arinfa.class
 com\cdsi\backend\inve\models\entity\IdLinea.class
+com\cdsi\backend\inve\models\entity\Arccvc.class
+com\cdsi\backend\inve\exception\ResponseExceptionHandler.class
 com\cdsi\backend\inve\models\dao\IArincatDao.class
 com\cdsi\backend\inve\controllers\Arinbo1Controller.class
 com\cdsi\backend\inve\models\services\RoleServImpl.class
 com\cdsi\backend\inve\models\services\ICatalogoService.class
 com\cdsi\backend\inve\models\services\IArfatpService.class
+com\cdsi\backend\inve\exception\ExceptionResponse.class
 com\cdsi\backend\inve\models\dao\IArinfaDao.class
