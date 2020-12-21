@@ -41,11 +41,6 @@ public class ArfamcServiceImpl implements IArfamcService {
 		return arfamcDao.findByCia(cia);
 	}
 
-	@Override
-	public Page<Arfamc> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return arfamcDao.findAll(pageable);
-	}
 
 	@Override
 	public Arfamc updateArfamct(String cia, Arfamc objArfa) {
@@ -57,6 +52,12 @@ public class ArfamcServiceImpl implements IArfamcService {
 		// objA.setRazonSocial(objArfa.getRazonSocial());
 		objA.setRuc(objArfa.getRuc());
 		return arfamcDao.save(objA);
+	}
+
+	@Override
+	public List<Arfamc> findAll() {
+		// TODO Auto-generated method stub
+		return arfamcDao.findAll();
 	}
 
 }

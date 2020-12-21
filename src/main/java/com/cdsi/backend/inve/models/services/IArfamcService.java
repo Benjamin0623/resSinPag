@@ -16,6 +16,6 @@ public interface IArfamcService {
 	//BUSCAMOS UNA COMPAÑIA
 	Arfamc findArfamc(String cia);
 	//PAGINACION
-	Page<Arfamc> findAll(Pageable pageable);
+	List<Arfamc> findAll();
 
 }

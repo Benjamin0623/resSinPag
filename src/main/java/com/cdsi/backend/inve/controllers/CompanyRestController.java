@@ -53,7 +53,7 @@ public class CompanyRestController {
 	@GetMapping(value = "/company/list")
 	//@Secured("ROLE_USER")
 	public List<Arfamc> listar() {
-		return compaService.getAllArfamc();
+		return compaService.findAll();
 	}
 
 }
