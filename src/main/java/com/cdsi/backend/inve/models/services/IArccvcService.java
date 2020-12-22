@@ -9,4 +9,6 @@ public interface IArccvcService {
 	List<Arccvc> findAll(String cia);
 	
 	Arccvc obtener(String cia, String cod, String pas);
+	
+	Arccvc vende(String cia, String cod);
 }

@@ -25,4 +25,10 @@ public class ArccvcServiceImpl implements IArccvcService {
 		return dao.ObtenerVende(cia, cod, pas);
 	}
 
+	@Override
+	public Arccvc vende(String cia, String cod) {
+		// TODO Auto-generated method stub
+		return dao.findCia(cia, cod);
+	}
+
 }

@@ -36,4 +36,13 @@ public class ArccvcController {
 		}
 		return new ResponseEntity<Arccvc>(obj,HttpStatus.OK);
 	}
+	
+	@GetMapping("/ven/{cia}/{cod}")
+	public ResponseEntity<Arccvc> vende(@PathVariable("cia") String cia,@PathVariable("cod") String cod) throws Exception{
+		Arccvc obj = arccServ.vende(cia, cod);
+		if(obj == null) {
+			throw new ModeloNotFoundException("Vendedor no encontrado" + cod);
+		}
+		return new ResponseEntity<Arccvc>(obj,HttpStatus.OK);
+	}
 }
