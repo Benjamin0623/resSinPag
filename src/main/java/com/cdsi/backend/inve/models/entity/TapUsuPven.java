@@ -1,6 +1,7 @@
 package com.cdsi.backend.inve.models.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,9 +21,8 @@ public class TapUsuPven implements Serializable {
 	private String tipusua;
 	private String centro;
 	private String estado;
-	private String cod_emp;
-	private String centro_costo;
-	private String password;
+	@Column(name = "COD_EMP")
+	private String emp;
 	
 	public IdTapUsuPven getIdUsuario() {
 		return idUsuario;
@@ -54,23 +54,12 @@ public class TapUsuPven implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public String getCod_emp() {
-		return cod_emp;
+	public String getEmp() {
+		return emp;
 	}
-	public void setCod_emp(String cod_emp) {
-		this.cod_emp = cod_emp;
+	public void setEmp(String emp) {
+		this.emp = emp;
 	}
-	public String getCentro_costo() {
-		return centro_costo;
-	}
-	public void setCentro_costo(String centro_costo) {
-		this.centro_costo = centro_costo;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 
 }

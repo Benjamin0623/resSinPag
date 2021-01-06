@@ -1,17 +1,11 @@
 package com.cdsi.backend.inve.models.dao;
 
-import java.util.List;
-
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cdsi.backend.inve.models.entity.Arfamc;
 
 @Repository
-public interface IArfamcDao extends PagingAndSortingRepository<Arfamc, Long> {
-	
-	Arfamc findByCia(String cia);
-	
-	List<Arfamc> findAll();
+public interface IArfamcDao extends JpaRepository<Arfamc, String> {
 	
 }

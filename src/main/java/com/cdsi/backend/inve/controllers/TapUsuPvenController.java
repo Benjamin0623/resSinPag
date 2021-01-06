@@ -1,0 +1,31 @@
+package com.cdsi.backend.inve.controllers;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cdsi.backend.inve.exception.ModeloNotFoundException;
+import com.cdsi.backend.inve.models.entity.TapUsuPven;
+import com.cdsi.backend.inve.models.services.ITapUsuPvenService;
+
+@RestController
+@RequestMapping("/api/usuarios")
+public class TapUsuPvenController {
+
+	@Autowired
+	private ITapUsuPvenService service;
+	
+	@GetMapping("/usuario/{cia}/{emp}")
+	public ResponseEntity<TapUsuPven> listarPorId(@PathVariable String cia,@PathVariable String emp) throws Exception{
+		TapUsuPven obj = service.listarPorId(cia,emp);
+		if(obj == null ) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + emp);
+		}
+		return new ResponseEntity<TapUsuPven>(obj, HttpStatus.OK);
+	}
+}

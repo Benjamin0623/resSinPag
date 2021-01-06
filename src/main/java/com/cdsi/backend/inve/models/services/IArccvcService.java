@@ -2,13 +2,12 @@ package com.cdsi.backend.inve.models.services;
 
 import java.util.List;
 
+import com.cdsi.backend.inve.dto.VendedorDTO;
 import com.cdsi.backend.inve.models.entity.Arccvc;
 
 public interface IArccvcService {
 
-	List<Arccvc> findAll(String cia);
+	List<Arccvc> listaVende(String cia);
 	
-	Arccvc obtener(String cia, String cod, String pas);
-	
-	Arccvc vende(String cia, String cod);
+	Arccvc traeVendedor(VendedorDTO dto);
 }
