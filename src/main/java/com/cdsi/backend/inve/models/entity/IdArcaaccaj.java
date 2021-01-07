@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Embeddable
 public class IdArcaaccaj implements Serializable {

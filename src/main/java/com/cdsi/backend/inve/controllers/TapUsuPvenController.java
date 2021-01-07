@@ -1,5 +1,7 @@
 package com.cdsi.backend.inve.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,11 +23,14 @@ public class TapUsuPvenController {
 	private ITapUsuPvenService service;
 	
 	@GetMapping("/usuario/{cia}/{emp}")
-	public ResponseEntity<TapUsuPven> listarPorId(@PathVariable String cia,@PathVariable String emp) throws Exception{
-		TapUsuPven obj = service.listarPorId(cia,emp);
+	public ResponseEntity<List<TapUsuPven>> listarPorId(@PathVariable String cia,@PathVariable String emp) throws Exception{
+		
+		List<TapUsuPven> obj = new ArrayList<>();
+		obj = service.listarPorId(cia,emp);
 		if(obj == null ) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + emp);
 		}
-		return new ResponseEntity<TapUsuPven>(obj, HttpStatus.OK);
+		
+		return new ResponseEntity<List<TapUsuPven>>(obj, HttpStatus.OK);
 	}
 }
