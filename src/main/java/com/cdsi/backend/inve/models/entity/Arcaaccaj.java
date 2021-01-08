@@ -1,14 +1,13 @@
 package com.cdsi.backend.inve.models.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "ARCAACCAJ")
@@ -20,13 +19,13 @@ public class Arcaaccaj implements Serializable {
 	private IdArcaaccaj idArcaja;
 
 	@Column(name = "FECHA", nullable = false)
-	private Date fecha;
+	private LocalDateTime fecha;
 	@Column(name = "CAJERA", nullable = false)
 	private String cajera;
 	@Column(name = "SALDO_INICIAL", precision = 12, scale = 3)
 	private Double saldoInicial;
 	@Column(name = "FECHA_CIERRE")
-	private Date fechaCierre;
+	private LocalDateTime fechaCierre;
 	@Column(name = "ESTADO")
 	private String estado;
 	@Column(name = "HORA", length = 5)
@@ -56,11 +55,11 @@ public class Arcaaccaj implements Serializable {
 		this.idArcaja = idArcaja;
 	}
 
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 
@@ -80,11 +79,11 @@ public class Arcaaccaj implements Serializable {
 		this.saldoInicial = saldoInicial;
 	}
 
-	public Date getFechaCierre() {
+	public LocalDateTime getFechaCierre() {
 		return fechaCierre;
 	}
 
-	public void setFechaCierre(Date fechaCierre) {
+	public void setFechaCierre(LocalDateTime fechaCierre) {
 		this.fechaCierre = fechaCierre;
 	}
 

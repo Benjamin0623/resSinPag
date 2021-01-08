@@ -35,9 +35,25 @@ public class ArccvcController {
 	public ResponseEntity<Arccvc> vendedor(@RequestBody VendedorDTO dto) {		
 		//codigo="09152188";
 		Arccvc obj = service.traeVendedor(dto);
+		
 		if(obj == null ) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
 		}
 		return new ResponseEntity<Arccvc>(obj, HttpStatus.OK);
 	}
+	@PostMapping("/vendedor/caja")
+	public ResponseEntity<VendedorDTO> vendeCaja(@RequestBody VendedorDTO dto) {		
+		//codigo="09152188";
+		Arccvc obj = service.traeVendedor(dto);
+		VendedorDTO vendedor = new VendedorDTO();
+		if(obj == null ) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
+		}
+		vendedor = service.traeEmpelado(obj.getIdArc().getCia(), obj.getIdArc().getCodigo());
+		if(vendedor.getCodEmp() == null ) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
+		}
+		return new ResponseEntity<VendedorDTO>(vendedor, HttpStatus.OK);
+	}
+	
 }

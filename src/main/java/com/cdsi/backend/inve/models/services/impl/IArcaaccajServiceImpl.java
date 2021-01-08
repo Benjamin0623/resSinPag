@@ -1,7 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +19,8 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	@Override
 	public Arcaaccaj aperturaCaja(Arcaaccaj caja) throws Exception {
 
-		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-		String date = DATE_FORMAT.format(caja.getFecha());
 
-		caja.getIdArcaja().setCod_aper(caj.codCaja(caja.getIdArcaja().getCia(), date));
+		caja.getIdArcaja().setCod_aper(caj.codCaja(caja.getIdArcaja().getCia(), caja.getFecha()));
 
 		return caj.save(caja);
 	}
@@ -35,12 +32,8 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	}
 
 	@Override
-	public String codCaja(String cia, String fecha) {
-		// TODO Auto-generated method stub
-		Date today = new Date();
-		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-		String date = DATE_FORMAT.format(today);
+	public String codCaja(String cia, LocalDateTime fecha) {
 
-		return caj.codCaja(cia, date);
+		return caj.codCaja(cia, fecha);
 	}
 }

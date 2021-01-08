@@ -1,5 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,19 @@ public class ArccvcServiceImpl implements IArccvcService {
 		return dao.traeVendedor(dto.getCia(),dto.getCodigo(),dto.getPass());
 	}
 
-
+	@Override
+	public VendedorDTO traeEmpelado(String cia, String emp) {
+		// TODO Auto-generated method stub
+	
+		VendedorDTO v = new VendedorDTO();
+		 dao.listaEmpleado(cia, emp).forEach(x->{
+			v.setCia(String.valueOf(x[0]));
+			v.setCodigo(String.valueOf(x[1]));
+			v.setCodEmp(String.valueOf(x[2]));
+		});
+		
+		return v;
+	}	
 
 
 

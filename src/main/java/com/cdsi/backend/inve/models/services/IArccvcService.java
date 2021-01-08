@@ -10,4 +10,6 @@ public interface IArccvcService {
 	List<Arccvc> listaVende(String cia);
 	
 	Arccvc traeVendedor(VendedorDTO dto);
+	
+	VendedorDTO traeEmpelado(String cia, String emp);
 }

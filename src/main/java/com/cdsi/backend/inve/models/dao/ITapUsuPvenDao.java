@@ -1,6 +1,8 @@
 package com.cdsi.backend.inve.models.dao;
 
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,5 +14,6 @@ import com.cdsi.backend.inve.models.entity.TapUsuPven;
 public interface ITapUsuPvenDao extends JpaRepository<TapUsuPven,IdTapUsuPven> {
 
 	@Query("FROM TapUsuPven t WHERE t.idUsuario.cia=:cia AND t.emp=:emp")
-	TapUsuPven listarPorId(@Param("cia") String cia,@Param("emp") String emp);
+	List<TapUsuPven> listarPorId(@Param("cia") String cia,@Param("emp") String emp);
+	
 }

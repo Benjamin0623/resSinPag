@@ -1,6 +1,7 @@
 package com.cdsi.backend.inve.controllers;
 
 import java.net.URI;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class ArcaaccajController {
 	}
 
 	@PostMapping("/caja")
-	public ResponseEntity<Arcaaccaj> cajaActual(@RequestBody DatosCajaDTO dto) {
+	public ResponseEntity<Arcaaccaj> cajaActual(@RequestBody DatosCajaDTO dto) throws Exception{
 
 		Arcaaccaj obj = service.buscarCaja(dto);
 		if (obj == null) {
@@ -46,10 +47,4 @@ public class ArcaaccajController {
 		return new ResponseEntity<Arcaaccaj>(obj, HttpStatus.OK);
 	}
 	
-	@PostMapping("/codCaja")
-	public String codCaja(@RequestBody String cia, String date ) {
-		String correlativo = service.codCaja(cia,date);
-		return correlativo;
-		
-	}
 }
