@@ -12,6 +12,7 @@ public class IdArfatp implements Serializable {
 	
 	@Column(name="NO_CIA")
 	private String cia;
+	
 	@Column(name = "TIPO")
 	private String tipo;
 	

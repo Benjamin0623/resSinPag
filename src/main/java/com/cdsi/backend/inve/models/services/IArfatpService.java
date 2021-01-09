@@ -12,5 +12,8 @@ public interface IArfatpService {
 	//BUSCAMOS UN ARTICULO
 	Arinfa findArinfa(IdArinfa objIdAf);*/
 	//PAGINACION
-	List<Arfatp> findAll(String cia);
+	List<Arfatp> findAll(String cia,String pvta);
+	
+	//METODO QUE NOS BUSCA UNA TRANSACCION ESPECIFICA
+	Arfatp buscarTransac(String cia,String tipo,String pvta);
 }
