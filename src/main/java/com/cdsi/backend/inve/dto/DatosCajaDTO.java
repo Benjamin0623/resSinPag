@@ -1,11 +1,16 @@
 package com.cdsi.backend.inve.dto;
 
+import java.time.LocalDateTime;
+
 public class DatosCajaDTO {
 
 	private String cia;
 	private String centro;
 	private String caja;
 	private String cajera;
+	private LocalDateTime fecha;
+	private LocalDateTime fechaSgte;
+	
 	public String getCia() {
 		return cia;
 	}
@@ -30,8 +35,20 @@ public class DatosCajaDTO {
 	public void setCajera(String cajera) {
 		this.cajera = cajera;
 	}
+	public LocalDateTime getFecha() {
+		return fecha;
+	}
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
+	}
+	public LocalDateTime getFechaSgte() {
+		return fechaSgte;
+	}
+	public void setFechaSgte(LocalDateTime fechaSgte) {
+		this.fechaSgte = fechaSgte;
+	}
 	
-	
+	 
 	
 	
 }

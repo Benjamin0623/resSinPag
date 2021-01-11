@@ -18,6 +18,6 @@ public interface IArccvcDao extends JpaRepository<Arccvc,IdArccvc> {
 	@Query(value = "SELECT NO_CIA,COD_VEN_COB,DESCRIPCION,PASSWORD FROM Arccvc a WHERE a.NO_CIA=:cia AND a.COD_VEN_COB=:codigo AND a.PASSWORD=:pass", nativeQuery = true)
 	Arccvc traeVendedor(@Param("cia") String cia,@Param("codigo") String codigo,@Param("pass") String pass);
 	
-	@Query(value = "select NO_CIA, NO_EMPLE, CEDULA from ARPLME a where a.no_cia=:cia and a.CEDULA=:emp", nativeQuery = true)
+	@Query(value = "select NO_CIA, CEDULA,NO_EMPLE from ARPLME a where a.no_cia=:cia and a.CEDULA=:emp", nativeQuery = true)
 	List<Object[]> listaEmpleado(@Param("cia") String cia,@Param("emp") String emp);
 }
