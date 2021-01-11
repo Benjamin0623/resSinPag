@@ -70,10 +70,10 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	}
 
 	@Override
-	public List<CajaDTO> listaCajas(String cia, String centro) {
+	public List<CajaDTO> listaCajasRegistro(String cia, String centro) {
 		// TODO Auto-generated method stub
 		List<CajaDTO> dto = new ArrayList<>();
-		caj.listaCajas(cia, centro).forEach(x->{
+		caj.listaCajasRegistro(cia, centro).forEach(x->{
 			CajaDTO caja = new CajaDTO();
 			caja.setCodigo(String.valueOf(x[0]));
 			caja.setNombre(String.valueOf(x[1]));
@@ -81,6 +81,19 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 			dto.add(caja);
 		});
 		
+		return dto;
+	}
+	@Override
+	public List<CajaDTO> listaCajasActual(String cia, String centro) {
+		
+		List<CajaDTO> dto = new ArrayList<>();
+		caj.listaCajasActual(cia, centro).forEach(x->{
+			CajaDTO caja = new CajaDTO();
+			caja.setCodigo(String.valueOf(x[0]));
+			caja.setNombre(String.valueOf(x[1]));
+			caja.setMoneda(String.valueOf(x[2]));
+			dto.add(caja);
+		});
 		return dto;
 	}
 

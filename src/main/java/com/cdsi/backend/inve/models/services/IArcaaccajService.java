@@ -25,5 +25,6 @@ public interface IArcaaccajService {
 	
 	void eliminar(IdArcaaccaj id) throws Exception;
 	
-	List<CajaDTO> listaCajas(String cia, String centro);
+	List<CajaDTO> listaCajasRegistro(String cia, String centro);
+	List<CajaDTO> listaCajasActual(String cia, String centro);
 }

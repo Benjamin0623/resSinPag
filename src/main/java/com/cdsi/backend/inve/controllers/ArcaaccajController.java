@@ -103,9 +103,15 @@ public class ArcaaccajController {
 		service.eliminar(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+	@GetMapping("/seleccionada/{cia}/{centro}")
+	public ResponseEntity<List<CajaDTO>> listaCajasActual(@PathVariable("cia")String cia,@PathVariable("centro")String centro) throws Exception{
+		List<CajaDTO> obj = service.listaCajasActual(cia, centro);
+	
+		return new ResponseEntity<List<CajaDTO>>(obj,HttpStatus.OK);
+	}
 	@GetMapping("/{cia}/{centro}")
-	public ResponseEntity<List<CajaDTO>> listaCajas(@PathVariable("cia")String cia,@PathVariable("centro")String centro) throws Exception{
-		List<CajaDTO> obj = service.listaCajas(cia, centro);
+	public ResponseEntity<List<CajaDTO>> listaCajasRegistro(@PathVariable("cia")String cia,@PathVariable("centro")String centro) throws Exception{
+		List<CajaDTO> obj = service.listaCajasRegistro(cia, centro);
 	
 		return new ResponseEntity<List<CajaDTO>>(obj,HttpStatus.OK);
 	}
