@@ -20,6 +20,18 @@ public class ArfatpServiceImpl implements IArfatpService {
 		return arfDao.findAll(cia);
 	}
 
-	
+	@Override
+	public List<Arfatp> listaPven(String cia, String pvta) {
+		// TODO Auto-generated method stub
+		return arfDao.listaPven(cia, pvta);
+
+	}
+
+	@Override
+	public Arfatp buscarTransac(String cia, String tipo, String pvta) {
+		// TODO Auto-generated method stub
+		return arfDao.buscarListPrecio(cia, tipo, pvta);
+
+	}
 
 }

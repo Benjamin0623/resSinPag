@@ -19,5 +19,9 @@ public interface IArfatpDao extends PagingAndSortingRepository<Arfatp,IdArfatp> 
 	@Query("SELECT a FROM Arfatp a  WHERE a.idArfa.cia = :cia")
 	List<Arfatp> findAll(@Param("cia") String cia);
 
+	@Query("FROM Arfatp a  WHERE a.idArfa.cia = :cia AND a.indPTota = :pvta")
+	List<Arfatp> listaPven(@Param("cia") String cia, @Param("pvta") String pvta);
 	
+	@Query("FROM Arfatp a  WHERE a.idArfa.cia = :cia AND a.idArfa.tipo = :tipo AND a.indPTota = :pvta")
+	Arfatp buscarListPrecio(@Param("cia") String cia,@Param("tipo") String tipo, @Param("pvta") String pvta);
 }
