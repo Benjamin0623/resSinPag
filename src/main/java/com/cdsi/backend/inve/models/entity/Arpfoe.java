@@ -46,6 +46,7 @@ public class Arpfoe {
 	private Double impuesto;
 	private String estado;
 	private String bodega;
+	private String cuser;
 	private Double igv;
 	@Column(name = "IND_GUIADO")
 	private String indGuiado;
@@ -158,6 +159,15 @@ public class Arpfoe {
 	@Column(name = "EMAIL_PEDIDO")
 	private String emailPedido;
 	
+	
+	public String getCuser() {
+		return cuser;
+	}
+
+	public void setCuser(String cuser) {
+		this.cuser = cuser;
+	}
+
 	public IdArpfoe getIdArpfoe() {
 		return idArpfoe;
 	}

@@ -1,5 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.cdsi.backend.inve.dto.DatosArticulo;
 import com.cdsi.backend.inve.dto.StockLibroDTO;
 import com.cdsi.backend.inve.models.dao.ArticuloStockDao;
 import com.cdsi.backend.inve.models.dao.IArticuloDao;
@@ -49,6 +51,19 @@ public class IArticuloStockServiceImpl implements IArticuloStockService{
 	public List<StockLibroDTO> pagArtiFindCatalogo(String cia, String cat, String alm, String pre) {
 		// TODO Auto-generated method stub
 		return artiDao.findByCiaAndCatalogoAndAlmacenAndTipo(cia, cat, alm, pre);
+	}
+
+	@Override
+	public DatosArticulo traePrecStock(String cia, String alm, String pre, String arti) {
+		// TODO Auto-generated method stub
+		
+		DatosArticulo datos = new DatosArticulo();
+		artiDao.traePrecStock(cia, alm, pre, arti).forEach(x->{
+			datos.setPrecio(Double.parseDouble(String.valueOf(x[0])));
+			datos.setStock(Integer.parseInt(String.valueOf(x[1])));
+		});
+		
+		return datos;
 	}
 
 	

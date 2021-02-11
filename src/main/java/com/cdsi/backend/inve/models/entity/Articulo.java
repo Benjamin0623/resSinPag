@@ -90,15 +90,15 @@ public class Articulo implements Serializable {
 	private String tipoAfectacion;
 	
 	// @Column(name = "RUTA_ARCHIVO_ARTI")
-	private String foto;
-	
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+//	private String foto;
+//	
+//	public String getFoto() {
+//		return foto;
+//	}
+//
+//	public void setFoto(String foto) {
+//		this.foto = foto;
+//	}
 
 	public IdArticulo getIdArti() {
 		return idArti;

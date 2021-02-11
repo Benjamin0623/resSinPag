@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cdsi.backend.inve.dto.DatosClienteDTO;
 import com.cdsi.backend.inve.models.dao.IArccmcDao;
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.entity.IdArccmc;
@@ -57,15 +58,19 @@ public class ArccmcServiceImple implements IArccmcService  {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public Page<Arccmc> findPagByCia(Pageable pageable, String cia) {
-		return arccDao.findPagByCia(pageable, cia);
+	public List<Arccmc> findPagByCia( String cia) {
+		return arccDao.findPagByCia(cia);
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public List<Arccmc> findByNombreAndCia(String cia, String dscri) {
-		return arccDao.findByNombreAndCia(cia, dscri);
+	public List<Arccmc> buscaClienteNombre(DatosClienteDTO dto) {
+		return arccDao.buscaClienteNombre(dto.getCia(), dto.getDescri());
+	}
+
+	@Override
+	public Arccmc buscaClienteDocumento(DatosClienteDTO dto) {
+		// TODO Auto-generated method stub
+		return arccDao.buscaClienteDocumento(dto.getCia(), dto.getDocumento());
 	}
 
 }

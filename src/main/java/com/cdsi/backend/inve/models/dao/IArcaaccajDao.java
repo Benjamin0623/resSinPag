@@ -26,7 +26,7 @@ public interface IArcaaccajDao extends JpaRepository<Arcaaccaj, IdArcaaccaj> {
 	@Query("FROM Arcaaccaj a WHERE a.idArcaja.cia = :cia AND a.idArcaja.centro=:centro AND a.estado='A' AND a.cajera=:cajera")
 	List<Arcaaccaj> caja(@Param("cia")String cia, @Param("centro") String centro, @Param("cajera") String cajera);
 	
-	@Query("FROM Arcaaccaj a WHERE a.idArcaja.cia = :cia AND a.idArcaja.centro=:centro AND a.fecha BETWEEN :fecha AND :fechaSgte")
+	@Query("FROM Arcaaccaj a WHERE a.idArcaja.cia = :cia AND a.idArcaja.centro=:centro AND a.fecha BETWEEN :fecha AND :fechaSgte ORDER BY a.estado ASC")
 	List<Arcaaccaj> totalCajas(@Param("cia")String cia, @Param("centro") String centro,LocalDateTime fecha,@Param("fechaSgte") LocalDateTime fechaSgte);
 	
 	@Query(value = "SELECT  a.NO_CABA, a.DESC_CABA, a.MONEDA FROM artsccb a WHERE a.no_cia = :cia AND a.tipo_caba = 'C' AND a.centro = :centro and a.no_caba not in(Select cod_caja from ARCAACCAJ where no_cia = :cia and centro = :centro and estado='A') order by a.no_caba", nativeQuery = true)

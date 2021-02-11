@@ -59,7 +59,7 @@ public interface IArticuloDao extends PagingAndSortingRepository<Articulo,IdArti
 	List<Articulo> findCodigoArticulo(@Param("cia") String cia,@Param("cod") String cod);
 	
    //VAMOS A TRAER TODOS LOS ARTICULOS SEGUN LA DESCRIPCION DEL ARTICULO
-	@Query("SELECT a FROM Articulo a WHERE a.idArti.cia = :cia AND a.catalogo.idCata.codigo = '1' AND a.descripcion LIKE %:dscri%")
+	@Query("SELECT a FROM Articulo a WHERE a.idArti.cia = :cia AND a.catalogo.idCata.codigo = '1' AND (LOWER(a.descripcion) LIKE %:dscri% OR (a.idArti.noArti) LIKE %:dscri%)")
 	List<Articulo> findDescripcionArticulo(@Param("cia") String cia,@Param("dscri") String dscri);
 	
 }

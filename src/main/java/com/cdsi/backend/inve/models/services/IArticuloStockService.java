@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 
+import com.cdsi.backend.inve.dto.DatosArticulo;
 import com.cdsi.backend.inve.dto.StockLibroDTO;
 
 public interface IArticuloStockService {
@@ -21,4 +22,6 @@ public interface IArticuloStockService {
 	List<StockLibroDTO> pagArtiFindLinea(String cia, String cat, String lin, String alm,String pre);
 
 	List<StockLibroDTO> pagArtiFindSubLinea(String cia, String cat, String lin, String sub, String alm,String pre);
+	
+	DatosArticulo traePrecStock(String cia, String alm, String pre, String arti);
 }

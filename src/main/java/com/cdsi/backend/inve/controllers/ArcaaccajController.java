@@ -46,7 +46,7 @@ public class ArcaaccajController {
 		return ResponseEntity.created(location).build();
 	}
 	@PutMapping
-	public ResponseEntity<Arcaaccaj> modifical(@Valid @RequestBody Arcaaccaj caja) throws Exception {
+	public ResponseEntity<Arcaaccaj> modificar(@Valid @RequestBody Arcaaccaj caja) throws Exception {
 		
 		
 		Arcaaccaj obj = service.actualizaCaja(caja);
@@ -60,16 +60,6 @@ public class ArcaaccajController {
 		Arcaaccaj obj = service.buscarCaja(dto);
 		if (obj == null) {
 			throw new ModeloNotFoundException("CAJA NO APERTURADA " + dto.getCaja());
-		}
-		return new ResponseEntity<Arcaaccaj>(obj, HttpStatus.OK);
-	}
-	
-	@PostMapping("/traerCaja")
-	public ResponseEntity<Arcaaccaj> cajaSeleccionada(@RequestBody IdArcaaccaj id) throws Exception{
-
-		Arcaaccaj obj = service.findById(id);
-		if (obj == null) {
-			throw new ModeloNotFoundException("CAJA NO APERTURADA " + id.getCodCaja());
 		}
 		return new ResponseEntity<Arcaaccaj>(obj, HttpStatus.OK);
 	}

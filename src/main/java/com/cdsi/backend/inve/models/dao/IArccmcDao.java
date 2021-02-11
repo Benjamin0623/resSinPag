@@ -17,13 +17,16 @@ public interface IArccmcDao extends PagingAndSortingRepository<Arccmc,IdArccmc> 
 	
 	//METODO QUE NOS PERMITE TRAER TODOS LOS CLIENTE CON COMPAÑIA
 	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia")
-	Page<Arccmc> findPagByCia(Pageable pageable,@Param("cia") String cia);
+	List<Arccmc> findPagByCia(@Param("cia") String cia);
 	
 	//METODO QUE NOS PERMITE BUSCAR A UN CLIENTE POR SU CODIGO
 	Arccmc findByObjIdArc(IdArccmc objIdArc);
 	
 	//METODO QUE NOS PERMITE BUSCAR A UN CLIENTE POR SU NOMBRE
-	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.nombre LIKE %:dscri%")
-	List<Arccmc> findByNombreAndCia(@Param("cia") String cia,@Param("dscri") String dscri);
+	@Query("FROM Arccmc a WHERE a.objIdArc.cia = :cia AND LOWER(a.nombre) LIKE %:dscri% AND a.activo='S'")
+	List<Arccmc> buscaClienteNombre(@Param("cia") String cia,@Param("dscri") String dscri);
+	
+	@Query("FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.objIdArc.id=:id and a.activo='S'")
+	Arccmc buscaClienteDocumento(@Param("cia") String cia,@Param("id") String id);
 	
 }

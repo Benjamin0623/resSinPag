@@ -19,9 +19,10 @@ public interface IArcaaccajService {
 	
 	List<Arcaaccaj> totalCajas(DatosCajaDTO dto);
 	
+	Arcaaccaj findById(IdArcaaccaj id) throws Exception;
+	
 	String codCaja(String cia, LocalDateTime fecha);
 	
-	Arcaaccaj findById(IdArcaaccaj id) throws Exception;
 	
 	void eliminar(IdArcaaccaj id) throws Exception;
 	

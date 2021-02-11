@@ -58,12 +58,6 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	}
 
 	@Override
-	public Arcaaccaj findById(IdArcaaccaj id) {
-		// TODO Auto-generated method stub
-		return caj.findById(id).orElse(null);
-	}
-
-	@Override
 	public void eliminar(IdArcaaccaj id) throws Exception {
 		// TODO Auto-generated method stub
 		caj.deleteById(id);
@@ -95,6 +89,11 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 			dto.add(caja);
 		});
 		return dto;
+	}
+	@Override
+	public Arcaaccaj findById(IdArcaaccaj id) throws Exception {
+		// TODO Auto-generated method stub
+		return caj.findById(id).orElse(null);
 	}
 
 	

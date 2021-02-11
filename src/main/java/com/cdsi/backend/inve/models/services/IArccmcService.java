@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.cdsi.backend.inve.dto.DatosClienteDTO;
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.entity.IdArccmc;
 
@@ -21,8 +22,10 @@ public interface IArccmcService {
 	Arccmc findArccmc(IdArccmc objIdArc);
 	
 	//Pagination de los clientes por compañia
-    Page<Arccmc> findPagByCia(Pageable pageable,String cia);   
+	List<Arccmc> findPagByCia(String cia);   
     
     //VAMOS A BUSCAR UN CLIENTES POR SU DESCRIPCION
-    List<Arccmc> findByNombreAndCia(String cia,String dscri);
+    List<Arccmc> buscaClienteNombre(DatosClienteDTO dto);
+    
+    Arccmc buscaClienteDocumento(DatosClienteDTO dto);
 }
